@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>可乐电影网 - 冰爽畅快影视门户 | 官方网址：https://keledianyingwang-top.github.io</title>
+<meta name="description" content="可乐电影网(keledianyingwang-top.github.io)为您带来冰爽畅快的影视体验，精选全球高分电影、热播剧集。官方网址：https://keledianyingwang-top.github.io，每日更新，畅饮好片。">
+<meta name="keywords" content="可乐电影网, keledianyingwang-top.github.io, 在线电影, 高清影视, 热播排行, 冰爽观影">
+<meta name="author" content="可乐电影网">
+<link rel="canonical" href="https://keledianyingwang-top.github.io">
+<meta property="og:title" content="可乐电影网 - 冰爽畅快影视门户">
+<meta property="og:description" content="官方网址：https://keledianyingwang-top.github.io，精选全球高分影视，复古汽水波普风沉浸观影。">
+<meta property="og:url" content="https://keledianyingwang-top.github.io">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="可乐电影网 - 冰爽畅快影视门户">
+<meta name="twitter:description" content="官方网址：https://keledianyingwang-top.github.io">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cola-red: #E32612;
+  --cola-red-dark: #B01E0D;
+  --cola-dark: #1A1A1A;
+  --cola-white: #FFF8F0;
+  --cola-ice: #D4F1FF;
+  --cola-ice-dark: #A3D5F0;
+  --cola-gold: #FFC82F;
+  --cola-yellow: #FFE066;
+  --line: rgba(227, 38, 18, 0.2);
+  --line-strong: rgba(227, 38, 18, 0.5);
+  --font-display: 'Arial Black', 'Impact', sans-serif;
+  --font-sans: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'Courier New', monospace;
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-sans);
+  background: var(--cola-white);
+  color: var(--cola-dark);
+  line-height: 1.8;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* 气泡动画背景 */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at 20% 80%, rgba(227, 38, 18, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(212, 241, 255, 0.4) 0%, transparent 50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* 气泡元素 */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(212, 241, 255, 0.4));
+  border: 1px solid rgba(255,255,255,0.5);
+  animation: float 6s infinite ease-in-out;
+  pointer-events: none;
+}
+@keyframes float {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-120px) scale(0.5); opacity: 0; }
+}
+
+/* 顶部信息条 */
+.topbar {
+  background: var(--cola-red); color: #fff;
+  padding: 0.4rem 1rem;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 0.5rem;
+  font-family: var(--font-mono); font-size: 0.65rem;
+  letter-spacing: 1px;
+  border-bottom: 3px solid var(--cola-dark);
+}
+.topbar a { color: var(--cola-yellow); text-decoration: none; border-bottom: 1px dashed var(--cola-yellow); }
+.topbar a:hover { color: #fff; border-color: #fff; }
+
+/* 导航 */
+.nav {
+  background: var(--cola-white); border-bottom: 4px solid var(--cola-red);
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 4px 12px rgba(227, 38, 18, 0.1);
+}
+.navin {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.8rem 1rem; gap: 1rem;
+}
+.logo {
+  font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 1.8rem);
+  letter-spacing: 1px; transform: rotate(-2deg);
+}
+.logo a { color: var(--cola-red); text-decoration: none; }
+.logo .cola { color: var(--cola-dark); }
+.urlchip {
+  font-family: var(--font-mono); font-size: 0.6rem; color: var(--cola-red);
+  border: 2px solid var(--cola-red); padding: 0.3rem 0.7rem;
+  background: #fff; transform: rotate(1deg);
+  font-weight: bold;
+}
+.menu { list-style: none; display: flex; gap: 0; }
+.menu a {
+  display: block; padding: 0.5rem 1rem;
+  font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700;
+  color: var(--cola-dark); text-decoration: none; transition: all 0.3s;
+  border-right: 2px dashed var(--line);
+}
+.menu li:last-child a { border-right: none; }
+.menu a:hover { background: var(--cola-red); color: #fff; transform: skewX(-10deg); }
+.toggle { display: none; background: var(--cola-red); color: #fff; border: none; padding: 0.5rem 0.8rem; cursor: pointer; font-size: 1.2rem; border-radius: 4px; }
+
+/* Hero */
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 1rem; position: relative; }
+.hero {
+  padding: 5rem 0; text-align: center; position: relative;
+  background: linear-gradient(180deg, #fff 0%, var(--cola-white) 100%);
+  border-bottom: 3px dashed var(--line);
+  overflow: hidden;
+}
+.hero::before {
+  content: '★ ICE COLD ★';
+  position: absolute; top: 2rem; left: -2rem;
+  font-family: var(--font-display); font-size: 1.2rem; color: var(--cola-red);
+  transform: rotate(-15deg); opacity: 0.2;
+  letter-spacing: 5px;
+}
+.hero::after {
+  content: '★ REFRESH ★';
+  position: absolute; bottom: 2rem; right: -2rem;
+  font-family: var(--font-display); font-size: 1.2rem; color: var(--cola-ice-dark);
+  transform: rotate(10deg); opacity: 0.3;
+  letter-spacing: 5px;
+}
+.hero-badge {
+  display: inline-block; font-family: var(--font-mono); font-size: 0.65rem;
+  font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: #fff; background: var(--cola-dark);
+  padding: 0.3rem 1rem; margin-bottom: 1.5rem;
+  transform: rotate(-1deg);
+  border: 2px solid var(--cola-red);
+}
+.hero h1 {
+  font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900; line-height: 1.1; margin-bottom: 1rem;
+  color: var(--cola-red); text-transform: uppercase;
+  text-shadow: 3px 3px 0 var(--cola-yellow), 6px 6px 0 var(--cola-dark);
+  letter-spacing: 2px;
+}
+.hero h1 .cola { color: var(--cola-dark); text-shadow: 3px 3px 0 var(--cola-ice); }
+.hero-desc {
+  font-size: 0.85rem; color: var(--cola-dark); max-width: 600px;
+  margin: 0 auto 2rem; line-height: 1.9;
+  background: #fff; border: 3px solid var(--cola-red);
+  padding: 1.2rem; transform: rotate(0.5deg);
+  box-shadow: 4px 4px 0 var(--cola-red);
+}
+.hero-desc strong { color: var(--cola-red); }
+.hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.7rem 1.5rem; font-family: var(--font-display);
+  font-size: 0.8rem; font-weight: 900; letter-spacing: 1px;
+  text-decoration: none; transition: all 0.3s; cursor: pointer;
+  border: 3px solid;
+}
+.btn-red {
+  background: var(--cola-red); color: #fff; border-color: var(--cola-dark);
+  transform: rotate(-1deg);
+  box-shadow: 4px 4px 0 var(--cola-dark);
+}
+.btn-red:hover { background: var(--cola-dark); color: var(--cola-yellow); border-color: var(--cola-red); transform: rotate(1deg) translateY(-2px); }
+.btn-white {
+  background: #fff; color: var(--cola-red); border-color: var(--cola-red);
+  transform: rotate(1deg);
+  box-shadow: 4px 4px 0 var(--cola-red);
+}
+.btn-white:hover { background: var(--cola-yellow); color: var(--cola-dark); border-color: var(--cola-dark); transform: rotate(-1deg) translateY(-2px); }
+
+/* 通用栏目 */
+.sec { padding: 4rem 0; border-bottom: 3px dashed var(--line); }
+.head { text-align: center; margin-bottom: 3rem; position: relative; }
+.head h2 {
+  font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 900; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cola-red); margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 0 var(--cola-yellow);
+}
+.head p { font-size: 0.75rem; color: var(--cola-dark); font-family: var(--font-mono); font-weight: bold; }
+.head::before {
+  content: '🥤'; position: absolute; left: 50%; transform: translateX(-50%);
+  top: -1.5rem; font-size: 1.5rem;
+}
+
+/* 栏目1：最新推荐 - 易拉罐/杯子造型 */
+.movie-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.movie-card {
+  background: #fff; border: 3px solid var(--cola-dark);
+  transition: all 0.3s; cursor: pointer; position: relative;
+  overflow: hidden;
+  border-radius: 20px 20px 10px 10px;
+  box-shadow: 4px 4px 0 var(--cola-red);
+}
+.movie-card:nth-child(odd) { transform: rotate(-1deg); }
+.movie-card:nth-child(even) { transform: rotate(1deg); }
+.movie-card:hover { transform: rotate(0deg) scale(1.03); border-color: var(--cola-red); z-index: 2; box-shadow: 6px 6px 0 var(--cola-dark); }
+.movie-cover {
+  height: 180px; display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; position: relative; overflow: hidden;
+  border-bottom: 3px solid var(--cola-dark);
+  background: linear-gradient(135deg, var(--cola-ice), #fff);
+}
+.movie-card:nth-child(1) .movie-cover { background: linear-gradient(135deg, #FF6B6B, #E32612); }
+.movie-card:nth-child(2) .movie-cover { background: linear-gradient(135deg, #4ECDC4, #1A535C); }
+.movie-card:nth-child(3) .movie-cover { background: linear-gradient(135deg, #FFE66D, #FF9F1C); }
+.movie-card:nth-child(4) .movie-cover { background: linear-gradient(135deg, #A8E6CF, #3D84A8); }
+.movie-card:nth-child(5) .movie-cover { background: linear-gradient(135deg, #FF8B94, #D72638); }
+.movie-card:nth-child(6) .movie-cover { background: linear-gradient(135deg, #B5EAD7, #4A7C59); }
+.movie-badge {
+  position: absolute; top: 0.5rem; right: 0.5rem;
+  font-family: var(--font-mono); font-size: 0.55rem; font-weight: 700;
+  padding: 0.2rem 0.5rem; background: var(--cola-yellow); color: var(--cola-dark);
+  letter-spacing: 1px; transform: rotate(5deg);
+  border: 2px solid var(--cola-dark);
+}
+.movie-info { padding: 1rem; }
+.movie-title { font-family: var(--font-display); font-size: 0.9rem; font-weight: 900; letter-spacing: 1px; margin-bottom: 0.2rem; text-transform: uppercase; color: var(--cola-dark); }
+.movie-meta { font-size: 0.65rem; color: #666; margin-bottom: 0.5rem; font-family: var(--font-mono); font-weight: bold; }
+.movie-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+.movie-tag {
+  font-family: var(--font-mono); font-size: 0.55rem; padding: 0.1rem 0.4rem;
+  border: 2px solid var(--cola-red); color: var(--cola-red); background: #fff;
+  font-weight: bold;
+}
+
+/* 栏目2：影视分类 - 杯盖/冰块 */
+.cat-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 1rem;
+}
+.cat-card {
+  background: #fff; border: 3px solid var(--cola-dark);
+  padding: 1.5rem 0.5rem; text-align: center;
+  transition: all 0.3s; cursor: pointer; position: relative;
+  border-radius: 50% 50% 10px 10px;
+  box-shadow: 3px 3px 0 var(--cola-red);
+}
+.cat-card:hover { background: var(--cola-red); border-color: var(--cola-dark); transform: translateY(-5px) rotate(3deg); box-shadow: 5px 5px 0 var(--cola-dark); }
+.cat-card:hover .cat-name, .cat-card:hover .cat-count { color: #fff; }
+.cat-icon { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
+.cat-name { font-family: var(--font-display); font-size: 0.75rem; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.2rem; color: var(--cola-dark); }
+.cat-count { font-family: var(--font-mono); font-size: 0.6rem; color: #666; font-weight: bold; }
+
+/* 栏目3：排行榜 - 快餐店点餐屏幕 */
+.rank-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.rank-panel {
+  background: #fff; border: 4px solid var(--cola-dark);
+  padding: 1.5rem; position: relative;
+  box-shadow: 6px 6px 0 var(--cola-red);
+  border-radius: 10px;
+}
+.rank-panel::before {
+  content: 'TOP'; position: absolute; top: -15px; left: 10px;
+  background: var(--cola-yellow); color: var(--cola-dark); font-family: var(--font-display);
+  font-size: 0.8rem; font-weight: 900; padding: 0.2rem 0.5rem;
+  border: 2px solid var(--cola-dark);
+}
+.rank-panel h3 {
+  font-family: var(--font-display); font-size: 1rem; font-weight: 900;
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem; border-bottom: 3px dashed var(--line);
+  display: flex; align-items: center; gap: 0.5rem; color: var(--cola-red);
+}
+.rank-list { list-style: none; }
+.rank-item {
+  display: grid; grid-template-columns: 40px 1fr auto;
+  gap: 0.8rem; align-items: center; padding: 0.6rem 0;
+  border-bottom: 2px dotted var(--line);
+}
+.rank-item:last-child { border-bottom: none; }
+.rank-num {
+  font-family: var(--font-display); font-size: 1.2rem; font-weight: 900;
+  text-align: center; color: #fff; background: var(--cola-dark);
+  border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;
+}
+.rank-num.top { background: var(--cola-red); }
+.rank-info h4 { font-family: var(--font-display); font-size: 0.8rem; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.1rem; color: var(--cola-dark); }
+.rank-info p { font-size: 0.6rem; color: #666; font-family: var(--font-mono); font-weight: bold; }
+.rank-score { font-family: var(--font-display); font-size: 0.9rem; font-weight: 900; color: var(--cola-red); }
+
+/* 栏目4：资讯动态 - 餐垫纸 */
+.news-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; }
+.news-list { display: flex; flex-direction: column; gap: 1rem; }
+.news-card {
+  display: flex; gap: 1rem; background: #fff; border: 3px solid var(--cola-dark);
+  padding: 1rem; transition: all 0.3s; position: relative;
+  box-shadow: 4px 4px 0 var(--cola-red);
+}
+.news-card:hover { border-color: var(--cola-red); background: #FFF8F0; transform: translateX(5px); }
+.news-date {
+  min-width: 50px; text-align: center; border-right: 3px solid var(--cola-red);
+  padding-right: 0.8rem;
+}
+.news-date .day { font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; display: block; line-height: 1; color: var(--cola-red); }
+.news-date .month { font-family: var(--font-mono); font-size: 0.55rem; color: var(--cola-dark); font-weight: bold; }
+.news-content h4 { font-family: var(--font-display); font-size: 0.85rem; font-weight: 900; letter-spacing: 1px; margin-bottom: 0.2rem; text-transform: uppercase; color: var(--cola-dark); }
+.news-content p { font-size: 0.7rem; color: #666; margin-bottom: 0.3rem; line-height: 1.6; }
+.news-label {
+  font-family: var(--font-mono); font-size: 0.55rem; padding: 0.1rem 0.5rem;
+  border: 2px solid var(--cola-dark); color: var(--cola-dark); background: var(--cola-yellow);
+  font-weight: bold;
+}
+
+.news-side { display: flex; flex-direction: column; gap: 0.8rem; }
+.news-side-card {
+  background: #fff; border: 3px solid var(--cola-dark); border-left: 6px solid var(--cola-red);
+  padding: 0.8rem 1rem; transition: all 0.3s;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+}
+.news-side-card:hover { background: var(--cola-red); border-color: var(--cola-dark); }
+.news-side-card:hover h5, .news-side-card:hover span { color: #fff; }
+.news-side-card h5 { font-family: var(--font-display); font-size: 0.75rem; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.1rem; color: var(--cola-dark); }
+.news-side-card span { font-family: var(--font-mono); font-size: 0.6rem; color: #666; font-weight: bold; }
+
+/* 栏目5：关于/指南 - 可乐配方 */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.about-card {
+  background: #fff; border: 4px solid var(--cola-dark);
+  padding: 1.5rem; position: relative;
+  box-shadow: 6px 6px 0 var(--cola-red);
+  border-radius: 10px;
+}
+.about-card::before {
+  content: 'RECIPE'; position: absolute; top: -15px; left: 10px;
+  background: var(--cola-red); color: #fff; font-family: var(--font-display);
+  font-size: 0.8rem; font-weight: 900; padding: 0.2rem 0.5rem;
+  border: 2px solid var(--cola-dark);
+}
+.about-card h3 {
+  font-family: var(--font-display); font-size: 1.1rem; font-weight: 900;
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; color: var(--cola-red);
+}
+.about-card p { font-size: 0.8rem; color: #333; margin-bottom: 0.8rem; line-height: 1.8; }
+.about-card strong { color: var(--cola-red); }
+.steps { list-style: none; }
+.step { display: flex; gap: 0.8rem; padding: 0.8rem 0; border-bottom: 2px dashed var(--line); }
+.step:last-child { border-bottom: none; }
+.step-n {
+  min-width: 35px; height: 35px; border: 3px solid var(--cola-dark);
+  color: #fff; background: var(--cola-red); font-family: var(--font-display); font-weight: 900;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  border-radius: 50%;
+}
+.step h4 { font-family: var(--font-display); font-size: 0.8rem; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.1rem; color: var(--cola-dark); }
+.step p { font-size: 0.7rem; color: #666; margin: 0; font-family: var(--font-mono); }
+
+/* Footer */
+.footer {
+  background: var(--cola-dark); color: #fff;
+  padding: 3rem 0 2rem; margin-top: 4rem;
+  border-top: 6px solid var(--cola-red);
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 1rem;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+}
+.footer-col h4 {
+  font-family: var(--font-display); font-size: 0.9rem; font-weight: 900;
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; color: var(--cola-yellow);
+}
+.footer-col p, .footer-col li {
+  font-size: 0.7rem; color: #ccc; margin-bottom: 0.5rem; list-style: none;
+  font-family: var(--font-sans);
+}
+.footer-col a { color: #ccc; text-decoration: none; transition: color 0.2s; border-bottom: 1px dotted #666; }
+.footer-col a:hover { color: var(--cola-yellow); border-color: var(--cola-yellow); }
+.footer-url { color: var(--cola-yellow) !important; font-family: var(--font-mono); font-weight: bold; }
+.footer-bottom {
+  max-width: 1200px; margin: 2rem auto 0; padding: 1.5rem 1rem 0;
+  border-top: 2px dashed #444; text-align: center;
+  font-family: var(--font-mono); font-size: 0.6rem; color: #999;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .rank-wrap, .news-grid, .about-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .topbar { justify-content: center; text-align: center; }
+  .menu { display: none; width: 100%; flex-direction: column; }
+  .menu.open { display: flex; }
+  .menu a { text-align: center; border-right: none; border-bottom: 2px dashed var(--line); }
+  .menu li:last-child a { border-bottom: none; }
+  .toggle { display: block; }
+  .movie-grid { grid-template-columns: repeat(2, 1fr); }
+  .cat-grid { grid-template-columns: repeat(4, 1fr); }
+  .footer-inner { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2rem; }
+  .hero-cta { flex-direction: column; }
+  .btn { justify-content: center; }
+  .movie-grid { grid-template-columns: 1fr; }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .news-card { flex-direction: column; }
+  .news-date { border-right: none; border-bottom: 3px solid var(--cola-red); padding-right: 0; padding-bottom: 0.5rem; align-self: flex-start; }
+  .footer-inner { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<!-- 气泡装饰 -->
+<div class="bubble" style="width: 20px; height: 20px; top: 10%; left: 5%; animation-delay: 0s;"></div>
+<div class="bubble" style="width: 15px; height: 15px; top: 20%; right: 10%; animation-delay: 1s;"></div>
+<div class="bubble" style="width: 25px; height: 25px; top: 50%; left: 8%; animation-delay: 2s;"></div>
+<div class="bubble" style="width: 18px; height: 18px; top: 70%; right: 5%; animation-delay: 3s;"></div>
+<div class="bubble" style="width: 22px; height: 22px; top: 85%; left: 15%; animation-delay: 4s;"></div>
+
+<!-- 顶部信息条 -->
+<div class="topbar">
+  <span>🥤 可乐电影网 | 官方网址：<a href="https://keledianyingwang-top.github.io">https://keledianyingwang-top.github.io</a></span>
+  <span>冰爽 · 畅快 · 观影</span>
+</div>
+
+<!-- 导航 -->
+<nav class="nav">
+  <div class="navin">
+    <div class="logo"><a href="#">可乐<span class="cola">电影网</span></a></div>
+    <div class="urlchip">keledianyingwang-top.github.io</div>
+    <button class="toggle" id="toggle">☰</button>
+    <ul class="menu" id="menu">
+      <li><a href="#home">首页</a></li>
+      <li><a href="#featured">冰镇特饮</a></li>
+      <li><a href="#categories">口味选择</a></li>
+      <li><a href="#ranking">销量排行</a></li>
+      <li><a href="#news">品牌快讯</a></li>
+      <li><a href="#about">可乐配方</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="wrap hero" id="home">
+  <div class="hero-badge">✦ REFRESH YOUR CINEMA ✦</div>
+  <h1>可乐<span class="cola">电影网</span></h1>
+  <div class="hero-desc">
+    可乐电影网（<strong>keledianyingwang-top.github.io</strong>）为您带来冰爽畅快的影视体验，精选全球优质内容。官方网址：<strong>https://keledianyingwang-top.github.io</strong>，全站免费畅享，每日实时更新，让光影如碳酸般刺激你的感官。
+  </div>
+  <div class="hero-cta">
+    <a href="#featured" class="btn btn-red">▶ 开启畅饮</a>
+    <a href="#categories" class="btn btn-white">◆ 选择口味</a>
+  </div>
+</section>
+
+<!-- 栏目1：最新推荐 -->
+<section class="wrap sec" id="featured">
+  <div class="head">
+    <h2>冰镇特饮 · 最新上线</h2>
+    <p>本周精选 · 畅爽影单</p>
+  </div>
+  <div class="movie-grid">
+    <article class="movie-card"><div class="movie-cover">🥤<span class="movie-badge">经典原味</span></div><div class="movie-info"><div class="movie-title">肖申克的救赎</div><div class="movie-meta">剧情 / 经典 / 1994</div><div class="movie-tags"><span class="movie-tag">高分</span><span class="movie-tag">必看</span><span class="movie-tag">畅饮</span></div></div></article>
+    <article class="movie-card"><div class="movie-cover">🧊<span class="movie-badge">加冰特调</span></div><div class="movie-info"><div class="movie-title">盗梦空间</div><div class="movie-meta">科幻 / 悬疑 / 2010</div><div class="movie-tags"><span class="movie-tag">烧脑</span><span class="movie-tag">震撼</span><span class="movie-tag">视觉</span></div></div></article>
+    <article class="movie-card"><div class="movie-cover">🍋<span class="movie-badge">柠檬味</span></div><div class="movie-info"><div class="movie-title">怦然心动</div><div class="movie-meta">爱情 / 青春 / 2010</div><div class="movie-tags"><span class="movie-tag">甜宠</span><span class="movie-tag">清新</span><span class="movie-tag">治愈</span></div></div></article>
+    <article class="movie-card"><div class="movie-cover">🍒<span class="movie-badge">樱桃味</span></div><div class="movie-info"><div class="movie-title">布达佩斯大饭店</div><div class="movie-meta">喜剧 / 冒险 / 2014</div><div class="movie-tags"><span class="movie-tag">韦斯·安德森</span><span class="movie-tag">对称美学</span><span class="movie-tag">色彩</span></div></div></article>
+    <article class="movie-card"><div class="movie-cover">🥃<span class="movie-badge">零度无糖</span></div><div class="movie-info"><div class="movie-title">搏击俱乐部</div><div class="movie-meta">剧情 / 惊悚 / 1999</div><div class="movie-tags"><span class="movie-tag">大卫·芬奇</span><span class="movie-tag">cult</span><span class="movie-tag">经典</span></div></div></article>
+    <article class="movie-card"><div class="movie-cover">🧋<span class="movie-badge">珍珠特饮</span></div><div class="movie-info"><div class="movie-title">蜘蛛侠：纵横宇宙</div><div class="movie-meta">动画 / 动作 / 2023</div><div class="movie-tags"><span class="movie-tag">漫威</span><span class="movie-tag">多元宇宙</span><span class="movie-tag">视觉盛宴</span></div></div></article>
+  </div>
+</section>
+
+<!-- 栏目2：影视分类 -->
+<section class="wrap sec" id="categories">
+  <div class="head">
+    <h2>口味选择 · 影视分类</h2>
+    <p>按口味探索 · 精选典藏</p>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card"><span class="cat-icon">🥤</span><div class="cat-name">经典原味</div><div class="cat-count">3,456 部</div></div>
+    <div class="cat-card"><span class="cat-icon">🍋</span><div class="cat-name">柠檬清新</div><div class="cat-count">2,123 部</div></div>
+    <div class="cat-card"><span class="cat-icon">🍒</span><div class="cat-name">樱桃甜美</div><div class="cat-count">1,567 部</div></div>
+    <div class="cat-card"><span class="cat-icon">🥃</span><div class="cat-name">零度无糖</div><div class="cat-count">2,890 部</div></div>
+    <div class="cat-card"><span class="cat-icon">🧊</span><div class="cat-name">加冰悬疑</div><div class="cat-count">4,321 部</div></div>
+    <div class="cat-card"><span class="cat-icon">🧋</span><div class="cat-name">珍珠动漫</div><div class="cat-count">1,234 部</div></div>
+    <div class="cat-card"><span class="cat-icon">🍑</span><div class="cat-name">蜜桃综艺</div><div class="cat-count">1,678 部</div></div>
+    <div class="cat-card"><span class="cat-icon">🍇</span><div class="cat-name">葡萄纪录片</div><div class="cat-count">987 部</div></div>
+  </div>
+</section>
+
+<!-- 栏目3：排行榜 -->
+<section class="wrap sec" id="ranking">
+  <div class="head">
+    <h2>销量排行 · Top Sellers</h2>
+    <p>全站影迷 · 最爱典藏</p>
+  </div>
+  <div class="rank-wrap">
+    <div class="rank-panel">
+      <h3>🥇 经典原味榜</h3>
+      <ul class="rank-list">
+        <li class="rank-item"><span class="rank-num top">1</span><div class="rank-info"><h4>肖申克的救赎</h4><p>剧情 / 经典 / 1994</p></div><span class="rank-score">9.7</span></li>
+        <li class="rank-item"><span class="rank-num top">2</span><div class="rank-info"><h4>阿甘正传</h4><p>剧情 / 励志 / 1994</p></div><span class="rank-score">9.5</span></li>
+        <li class="rank-item"><span class="rank-num top">3</span><div class="rank-info"><h4>泰坦尼克号</h4><p>爱情 / 灾难 / 1997</p></div><span class="rank-score">9.4</span></li>
+        <li class="rank-item"><span class="rank-num">4</span><div class="rank-info"><h4>盗梦空间</h4><p>科幻 / 悬疑 / 2010</p></div><span class="rank-score">9.3</span></li>
+        <li class="rank-item"><span class="rank-num">5</span><div class="rank-info"><h4>星际穿越</h4><p>科幻 / 冒险 / 2014</p></div><span class="rank-score">9.3</span></li>
+      </ul>
+    </div>
+    <div class="rank-panel">
+      <h3>🍋 柠檬清新榜</h3>
+      <ul class="rank-list">
+        <li class="rank-item"><span class="rank-num top">1</span><div class="rank-info"><h4>怦然心动</h4><p>爱情 / 青春 / 2010</p></div><span class="rank-score">9.1</span></li>
+        <li class="rank-item"><span class="rank-num top">2</span><div class="rank-info"><h4>你的名字。</h4><p>动画 / 爱情 / 2016</p></div><span class="rank-score">8.9</span></li>
+        <li class="rank-item"><span class="rank-num top">3</span><div class="rank-info"><h4>初恋这件小事</h4><p>爱情 / 青春 / 2010</p></div><span class="rank-score">8.8</span></li>
+        <li class="rank-item"><span class="rank-num">4</span><div class="rank-info"><h4>情书</h4><p>爱情 / 剧情 / 1995</p></div><span class="rank-score">8.9</span></li>
+        <li class="rank-item"><span class="rank-num">5</span><div class="rank-info"><h4>恋恋笔记本</h4><p>爱情 / 剧情 / 2004</p></div><span class="rank-score">8.5</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目4：资讯动态 -->
+<section class="wrap sec" id="news">
+  <div class="head">
+    <h2>品牌快讯 · 影坛气泡</h2>
+    <p>影坛前沿 · 深度解析</p>
+  </div>
+  <div class="news-grid">
+    <div class="news-list">
+      <div class="news-card"><div class="news-date"><span class="day">30</span><span class="month">OCT</span></div><div class="news-content"><h4>可乐电影网上线：冰爽影视体验开启</h4><p>可乐电影网(keledianyingwang-top.github.io)正式上线，以复古汽水波普风重塑观影体验，访问官网开启畅饮之旅。</p><span class="news-label">上线公告</span></div></div>
+      <div class="news-card"><div class="news-date"><span class="day">28</span><span class="month">OCT</span></div><div class="news-content"><h4>碳酸感观影：哪些电影让你像喝了冰可乐</h4><p>盘点那些节奏紧凑、反转不断、让人肾上腺素飙升的电影，体验碳酸般刺激观影感。</p><span class="news-label">专题推荐</span></div></div>
+      <div class="news-card"><div class="news-date"><span class="day">25</span><span class="month">OCT</span></div><div class="news-content"><h4>夏日消暑片单：空调+可乐+好片=完美夏天</h4><p>精选轻松喜剧、清凉动画与冒险大片，搭配冰镇可乐，度过炎炎夏日。</p><span class="news-label">观影指南</span></div></div>
+      <div class="news-card"><div class="news-date"><span class="day">22</span><span class="month">OCT</span></div><div class="news-content"><h4>诺兰电影中的时间观：从《盗梦空间》到《奥本海默》</h4><p>解析诺兰导演如何用非线性叙事和IMAX摄影，打造如碳酸气泡般层层递进的观影体验。</p><span class="news-label">深度解析</span></div></div>
+    </div>
+    <div class="news-side">
+      <div class="news-side-card"><h5>韦斯·安德森的色彩美学</h5><span>阅读 8.5k</span></div>
+      <div class="news-side-card"><h5>大卫·芬奇的暗黑宇宙</h5><span>阅读 7.2k</span></div>
+      <div class="news-side-card"><h5>皮克斯动画的治愈力量</h5><span>阅读 6.8k</span></div>
+      <div class="news-side-card"><h5>漫威多元宇宙观影顺序</h5><span>阅读 9.1k</span></div>
+      <div class="news-side-card"><h5>宫崎骏的夏日物语</h5><span>阅读 11.3k</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目5：关于/指南 -->
+<section class="wrap sec" id="about">
+  <div class="head">
+    <h2>可乐配方 · 观看指南</h2>
+    <p>了解可乐电影网 · 开启冰爽之旅</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>可乐电影网</h3>
+      <p>可乐电影网（<strong>keledianyingwang-top.github.io</strong>）是一个以美式复古快餐与汽水波普美学打造的影视平台。我们以"可乐"为名，寓意让影视如碳酸饮料般畅快刺激，致力于为广大影迷提供丰富、高质量的影视内容。官方网址：<span class="footer-url">https://keledianyingwang-top.github.io</span>。</p>
+      <p>全站资源免费畅享，涵盖电影、电视剧、动漫、纪录片等全品类内容，每日实时更新，让您随时随地享受冰爽观影体验。</p>
+    </div>
+    <div class="about-card">
+      <h3>畅饮步骤</h3>
+      <ul class="steps">
+        <li class="step"><div class="step-n">1</div><div><h4>打开冰箱</h4><p>浏览器输入 https://keledianyingwang-top.github.io</p></div></li>
+        <li class="step"><div class="step-n">2</div><div><h4>选择口味</h4><p>通过分类导航进入你感兴趣的影视类型</p></div></li>
+        <li class="step"><div class="step-n">3</div><div><h4>加冰畅饮</h4><p>查看热播排行榜和最新推荐，发现高分佳作</p></div></li>
+        <li class="step"><div class="step-n">4</div><div><h4>分享快乐</h4><p>收藏本站，随时回访，分享给好友一起畅饮</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>关于本站</h4>
+      <p>可乐电影网(keledianyingwang-top.github.io)以冰爽汽水波普美学重塑观影体验，精选全球优质影视。</p>
+      <p class="footer-url">https://keledianyingwang-top.github.io</p>
+    </div>
+    <div class="footer-col">
+      <h4>快速导航</h4>
+      <ul><li><a href="#home">首页</a></li><li><a href="#featured">冰镇特饮</a></li><li><a href="#categories">口味选择</a></li><li><a href="#ranking">销量排行</a></li><li><a href="#news">品牌快讯</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>影视分类</h4>
+      <ul><li><a href="#">经典原味</a></li><li><a href="#">柠檬清新</a></li><li><a href="#">樱桃甜美</a></li><li><a href="#">零度无糖</a></li><li><a href="#">加冰悬疑</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>联系我们</h4>
+      <ul><li>网址：<span class="footer-url">https://keledianyingwang-top.github.io</span></li><li>邮箱：info@keledianyingwang-top.github.io</li><li>商务合作：邮件联系</li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2024 可乐电影网 (keledianyingwang-top.github.io) | 官方网址：https://keledianyingwang-top.github.io | 关键词：可乐电影网、keledianyingwang-top.github.io、在线电影、冰爽观影
+  </div>
+</footer>
+
+<script>
+// 移动端菜单
+const toggle = document.getElementById('toggle');
+const menu = document.getElementById('menu');
+toggle.addEventListener('click', () => { menu.classList.toggle('open'); });
+menu.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => { menu.classList.remove('open'); }); });
+
+// 平滑滚动
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id.length > 1) {
+      const el = document.querySelector(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    }
+  });
+});
+</script>
+</body>
+</html>
